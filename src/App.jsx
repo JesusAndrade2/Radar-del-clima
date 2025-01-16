@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import './App.scss';
 import Card from './components/Card';
@@ -44,11 +44,13 @@ function App() {
 	const [coords, setCoords] = useState('');
 	const [weather, setWeather] = useState('');
 	const [isCelsius, setIsCelsius] = useState(true);
-	const [text, setText] = useState('');
 	const [search, setSearch] = useState('bogota');
 	const [currentTime, setCurrentTime] = useState(
 		new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
 	);
+
+	const inputRef = useRef();
+
 	const [imgBackground, setImgBackground] = useState(
 		images[getRandomIndex(images)],
 	);
@@ -56,8 +58,8 @@ function App() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setSearch(text);
-		setText('');
+		setSearch(inputRef.current.value);
+		inputRef.current.value = '';
 		setImgBackground(images[getRandomIndex(images)]);
 	};
 
@@ -140,8 +142,7 @@ function App() {
 					<input
 						className="weather__form-input"
 						type="text"
-						value={text}
-						onChange={(e) => setText(e.target.value)}
+						ref={inputRef}
 						placeholder="Ciudad"
 					/>
 					<button className="weather__btn">Buscar por ciudad</button>

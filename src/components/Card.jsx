@@ -1,5 +1,6 @@
 import './Card.scss';
 import { LuWind, LuCloudy, LuThermometer } from 'react-icons/lu';
+import { ImMeter } from 'react-icons/im';
 
 function Card({ weather, isCelsius, currentTime }) {
 	return (
@@ -37,7 +38,7 @@ function Card({ weather, isCelsius, currentTime }) {
 					%
 				</p>
 				<p className="weather__details-item">
-					<LuThermometer className="weather__details-item--icon" />
+					<ImMeter className="weather__details-item--icon" />
 					{weather?.pressure} hPa
 				</p>
 			</div>
