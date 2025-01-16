@@ -1,0 +1,39 @@
+.weather-card{
+  &__city{
+color: #f0f0f0;
+}
+&__content{
+  display: flex;
+  justify-content: space-evenly;
+  }
+&__icon{
+  font-size: 3rem;
+  animation: jump 1.5s infinite linear;
+}
+}
+.weather__details{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  gap:1rem;
+  &-item {
+    font-size: 1rem;
+    font-weight: 900;
+    
+    &--icon{
+      margin-right: 3px;
+      font-size: 1.5rem;
+     
+    }
+  }
+
+}
+.btn{
+  font-size: 3rem;
+}
+
+@keyframes jump {
+	50% {
+		transform: translateY(-10%) scaleY(1.05);
+	}
+}
